@@ -1,5 +1,6 @@
 *.class
 *.log
+scalafix/.idea/*
 target/
 .bloop/
 .metals/
