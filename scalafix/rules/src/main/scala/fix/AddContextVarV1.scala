@@ -9,10 +9,10 @@ class AddContextVarV1 extends SemanticRule("AddContextVarV1") {
   final override val description: String = "Adds Context as a first argument to cloudknox classes"
 
   final val contextStr = "context: BaseContext"
-//  final val contextImport = "import io.cloudknox.models.common.BaseContext"
-//  final val contextToMarkerImplicit = s"${contextImport}._"
-  final val contextImport ="import scala.Int"
-  final val contextToMarkerImplicit = "import scala.Boolean"
+  final val contextImport = "import io.cloudknox.models.common.BaseContext"
+  final val contextToMarkerImplicit = s"${contextImport}._"
+  //final val contextImport ="import scala.Int"
+  //final val contextToMarkerImplicit = "import scala.Boolean"
 
   override def fix(implicit doc: SemanticDocument): Patch = {
     val tree = doc.tree
@@ -32,15 +32,16 @@ class AddContextVarV1 extends SemanticRule("AddContextVarV1") {
 
       case t : Decl.Def if t.paramss.last.isEmpty =>
         // no parameters in the function, but declaration has empty ()
-        if (t.decltpe.tokens.isEmpty)
-          Patch.addLeft(t.tokens.last, s"implicit $contextStr").atomic
-        else {
-          val p = t.decltpe.tokens.head.start
 
+        if (t.decltpe.tokens.isEmpty) {
+          // No patch: declaration without return type
+          Patch.empty
+        } else {
+          val p = t.decltpe.tokens.head.start
           t.tokens.filter{ tl => tl.is[Token.RightParen] && tl.start < p}
             .lastOption
             .map(
-              Patch.replaceToken(_, s"implicit $contextStr)").atomic
+              Patch.addRight(_, s"(implicit $contextStr)").atomic
             )
             .getOrElse(Patch.empty)
         }
@@ -86,8 +87,8 @@ class AddContextVarV1 extends SemanticRule("AddContextVarV1") {
                 v
               }
               .lastOption
-              .map( v =>
-                Patch.addLeft(v, s"implicit $contextStr")
+              .map(
+                Patch.addRight(_, s"(implicit $contextStr)").atomic
               )
               .getOrElse(
                 Patch.empty

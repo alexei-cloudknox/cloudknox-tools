@@ -1,7 +1,7 @@
-# Scalafix rules for scalafix-rules
+# Scalafix rules for scalafix
 
 To develop rule:
 ```
 sbt ~tests/test
-# edit rules/src/main/scala/fix/Scalafixrules.scala
+# edit rules/src/main/scala/fix/Scalafix.scala
 ```

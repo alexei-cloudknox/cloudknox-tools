@@ -1,7 +1,7 @@
 lazy val V = _root_.scalafix.sbt.BuildInfo
 
 lazy val rulesCrossVersions = Seq(V.scala213, V.scala212, V.scala211)
-lazy val scala3Version =  "2.12.13"
+lazy val scala3Version = "2.12.13"
 
 inThisBuild(
   List(
@@ -25,7 +25,7 @@ inThisBuild(
   )
 )
 
-lazy val `scalafix-rules` = (project in file("."))
+lazy val `scalafix-test` = (project in file("."))
   .aggregate(
     rules.projectRefs ++
       input.projectRefs ++
