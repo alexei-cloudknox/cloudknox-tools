@@ -1,0 +1,49 @@
+{
+  "org_id": "iGsDEC49OIs7Yw1VXBEDfY037Zpr1b9c",
+  "auth_system_id": "956987887735",
+
+  "user_principal_name": "geeta@mciemgeetaalapatippe03.ccsctp.net",
+  "user_name": "geeta",
+  "user_email": "",
+  "raw_bucket": "raw-data-342194867054-us-west-2",
+
+  "postgres_li": {
+    "host": "localhost",
+    "port": 5432,
+    "user": "alexei",
+    "password": "ZBM8VuQqQqIDhRzxXMYc"
+  },
+
+  "postgres_hi": {
+    "host": "localhost",
+    "port": 5433,
+    "user": "alexei",
+    "password": "fSaeDpRm3BU2OMTazGGV"
+  },
+
+  "data_lake": {
+    "user": "alexei",
+    "password": "",
+    "host": "localhost",
+    "port": 8080,
+    "db": "db_datalake"
+  },
+
+  "minio_client": {
+    "endpoint": "s3.amazonaws.com",
+    "secure": true,
+    "access_key": "ASIAU7LDHJNXOZXMI3GE",
+    "secret_key": "eSVQG/lvc4SUHRZWwti9j3uD7aDODNEldUINIffe",
+    "session_token": "FwoGZXIvYXdzEAkaDN4XDXSHxBb2XwUPJSKVAvH3ulrBKz9iANovo4i93roXJNXF5leaA52w37iv0M9PKoEyKMvocdm12wvJ6B3Xg66b5lJzo0eu10/G7OnAtJOd1caZ5oolJaS6QSfu6/+jsU1PihyNwSxLpkuftbizj4/LVaBXIlRuv5cPbG7u4PCgAdtcPqbAPbWCb0VTzVW59F7kpA3nF4y86+3c9n/gbg5gZRWh24VfXeiezXQFiLzXF+122CfUlw/oiMkKzEuLk7QsVQGo1DD2lAjd6Ur5rsXjyUT74XTQSZhOzPgQuy8q89+7USTX8wgrcb+FUsl1g/WY3SVbUjYmaxLOAlFL4mGgzb6FVwFQjeld+5oo+gKCh8o/qWNS0KoaX1zzImwVXpIvl/kon/qhkwYyK5q3eYgxS04vSr7VE0whf6mrXyk3WJ58f2f4u8WVXmFfaLhjBssYU0MgJ6E=",
+    "api": "S3v4",
+    "path": "auto"
+  },
+
+  "mysql_client": {
+    "host": "localhost",
+    "port": 3306,
+    "user": "alexei",
+    "password": "B4UOmMCIrYG2Ccj2UlCf",
+    "db": "db_iam"
+  }
+}

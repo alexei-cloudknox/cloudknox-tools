@@ -1,0 +1,47 @@
+{
+  "org_id": "iGsDEC49OIs7Yw1VXBEDfY037Zpr1b9c",
+  "auth_system_id": "956987887735",
+  "user_principal_name": "geeta@mciemgeetaalapatippe03.ccsctp.net",
+  "user_name": "geeta",
+  "user_email": "",
+  "raw_bucket": "knox-local-raw-data",
+
+  "postgres_li": {
+    "host": "localhost",
+    "port": 5432,
+    "user": "alexei",
+    "password": "THLaCtBMfsfXLbQJomsm"
+  },
+
+  "postgres_hi": {
+    "host": "localhost",
+    "port": 5433,
+    "user": "alexei",
+    "password": "ftN7WFDhUvWDg8ZNevCb"
+  },
+
+  "data_lake": {
+    "user": "alexei",
+    "password": "",
+    "host": "localhost",
+    "port": 8080,
+    "db": "db_datalake"
+  },
+
+  "minio_client": {
+    "endpoint": "localhost:9999",
+    "secure": "False",
+    "access_key": "cloudknox",
+    "secret_key": "cloudknox",
+    "api": "S3v4",
+    "path": "auto"
+  },
+
+  "mysql_client": {
+    "host": "localhost",
+    "port": 3306,
+    "user": "alexei",
+    "password": "B4UOmMCIrYG2Ccj2UlCf",
+    "db": "db_iam"
+  }
+}
