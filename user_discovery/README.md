@@ -11,7 +11,8 @@ The config file has clearly described parameters for connections.
 Except for blob data storage, a connection must be tunneled through a jump host. Blob storage, as it is S3 today, the communication is direct to the public host.
 
 Example of SSH tunneling through a jump host:
-| Storage Type |DB connection description                         | Connection setup                                             |
+
+| Storage Type |DB connection description | Connection setup|
 |---------------|-----------------------------------------|------------------------------------------------------------------------|
 | data-db |  Postgres hi intensity DB(make a not of ingres port)| ssh -L 5433:postgres-hi.qa4.mciem.cloudknox.io:5432 jhmq4|
 | data-db | Postgres low intensity DB|    ssh -L 5432:postgres-lo.qa4.mciem.cloudknox.io:5432 jhmq4|
@@ -54,13 +55,13 @@ Make sure the script is run without a delete option to verify that user info sea
 
 Search parameters example:
 ````json
-  "org_id": "cukvKLU0Yqw939WofWWvy0zaMkBkojnJ",
-  "auth_system_id": "377596131774",
-  "auth_system_type": "AWS",
-
-  "user_principal_name": "arn:aws:iam::377596131774:user/alexei",
-  "user_name": "alexei",
-  "user_email": "arn:aws:iam::377596131774:user/alexei",
+"org_id": "cukvKLU0Yqw939WofWWvy0zaMkBkojnJ",
+"auth_system_id": "377596131774",
+"auth_system_type": "AWS",
+ 
+"user_principal_name": "arn:aws:iam::377596131774:user/alexei",
+"user_name": "alexei",
+"user_email": "arn:aws:iam::377596131774:user/alexei",
 ````
 
 ## Examples Running the Script
