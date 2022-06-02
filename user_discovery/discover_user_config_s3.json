@@ -42,9 +42,9 @@
   "minio_client": {
     "endpoint": "s3.amazonaws.com",
     "secure": true,
-    "access_key": "ASIAU7LDHJNXGSYHXA5I",
-    "secret_key": "qaygtIF39iLiUv7dCV/mp5goHuUU+PpAK4s6giX4",
-    "session_token": "FwoGZXIvYXdzEGsaDBqCRapkahQSay519iKVAkefDNyFjjQRUFjcayFpeUesGtqEoItEl67S7QXfTpC0pl8UdGZdmvP3PSUUxMOsYMhJ2TIMGE0PoUggD7zT9r4fbYQUFqFaGPK2GIfjxaWfDU0pUWQc0jx+1QlnvIAOVLSdgLHZeDpqdUvUs8CKmbw3LSFMZ3hUoxWe1GGGqMp9jmiEecQgNepXoGx1JDhAXTdh7j0Fd9yjwLOz38t5/1bo6ch9MxKNOPlps7N+oDHVJ5YIqROA4ZYPX3PvmuAz7EEnXBE0sz95/tZuUcjWWL0eV8bKGQ+tm+YPhskS5KkWwIIUePodkyQXiYEEm8ge1rGwGwgk0F6htVjPMFFl4rySq1Puvk3H/z3RzVPz8CZ/ioDfx1Iox5rglAYyK8h+zTTTsCMtTPowwd/GUfg6G2Ze89MmPY9jBTgBjKLMTQ8R6IPDbwOK6Gc=",
+    "access_key": "ASIAU7LDHJNXIJX4JPXK",
+    "secret_key": "G5gf2uAk16jZIIb/bJUam84bvlr/otKN2BLA8fw5",
+    "session_token": "FwoGZXIvYXdzEHoaDPVjvm2ZdnAB1GMWAiKVAnHQ3WuNcuPo1JLMwu+J78BwqCCT7BKSbQU4LqF+KK5wgetv1KE6imNiFTx5VILWH9vyPpkkpLi9SyugOwLqNsxJXaw7fan/ujQzM1eDMIIXb/MgjLCcMEoEMjtRu/U6A9F3aTmxj0Q80uSRUmamWE2MkXB3GEW8nRWbb150+405UQImwFV6RSHjmvN/8cIMQTzSAA9qDgr63GJN4P9kwcuoUGlofK/+WE8IysDaXzwT9zKal25rTDdE02TCL4/pEuNg94FxJh/WrepLxKnYotQXoOlDv7hbHxvq3qiOgn9Gy6Rm/LTF0eU2ubkxXRffpjXBtLtfwLLjwDmHUXW12DQpT2DL53YbVh8KveUakTNY9N11wcgowcfjlAYyKwU74EKiIhrphmZEX0P0NloRd9+RPNJPXP06X2seuBTInJoYxox8QBXqJtk=",
     "api": "S3v4",
     "path": "auto",
     "raw_bucket": "raw-data-342194867054-us-east-1"
@@ -54,7 +54,7 @@
     "host": "localhost",
     "port": 3306,
     "user": "alexei",
-    "password": "5o7HxdsarFU0VgVjoDCO",
+    "password": "IpZLjOo09AQ7ojW0RnAn",
     "db": "db_iam"
   }
 }

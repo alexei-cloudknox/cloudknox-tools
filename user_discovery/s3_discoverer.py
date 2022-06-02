@@ -20,13 +20,18 @@ class UserProperties:
     found_json = None
     minio_client = None
 
-    def __init__(self, name, email, principal, org_id, system_id, bucket):
+    def __init__(self, name, email, principal, org_id, auth_system_id, bucket):
         self.name = name
         self.email = email
         self.principal = principal
         self.org_id = org_id
-        self.system_id = system_id
+        self.auth_system_id = auth_system_id
         self.bucket = bucket
+
+    def is_found(self):
+        return self.first_occurrence is not None \
+               and self.last_occurrence is not None \
+               and self.found_json is not None
 
     def set_ent_type(self, ent_type):
         self.ent_type = ent_type
@@ -56,7 +61,7 @@ class UserProperties:
     def obtain_file_objects(self, ent_type, reset=False):
         if self.objects is not None and not reset:
             return
-        path = "{}/{}/{}/".format(ent_type, self.org_id, self.system_id)
+        path = "{}/{}/{}/".format(ent_type, self.org_id, self.auth_system_id)
         res_objects = self.minio_client.list_objects(self.bucket, prefix=path, recursive=True)
         self.objects = []
         for obj in res_objects:
@@ -144,7 +149,10 @@ class UserProperties:
 
     def get_relevant_path(self):
         name = self.objects[self.last_occurrence].object_name
-        return name[0:name.rfind('/')]
+        sp_name = name.split('/')
+        if len(sp_name) < 4:
+            raise Exception("Path name should consist of more than 3 directories: {}".format(name))
+        return "/".join(sp_name[1:len(sp_name) - 2])
 
 
 def get_latest_for_obj_type(config, client, bucket, obj_type, depth):
@@ -195,22 +203,20 @@ def print_user_info(config, pf):
         return None
 
 
-def delete_objects(config, user, collection_type, last_inclusion_path, pf):
-    org_id = config.get("org_id")
-    auth_system_id = config.get("auth_system_id")
-    path = "{}/{}/{}/".format(collection_type, org_id, auth_system_id)
-    res_objects = user.client.list_objects(user.bucket, prefix=path, recursive=True)
+def delete_objects(user, collection_type, last_inclusion_path, pf):
+    path = "{}/{}/{}/".format(collection_type, user.org_id, user.auth_system_id)
+    res_objects = user.minio_client.list_objects(user.bucket, prefix=path, recursive=True)
     for obj in res_objects:
-        name = obj.object_name
-        if name[0:name.rfind('/')] <= last_inclusion_path:
+        sp_name = obj.object_name.split('/')
+        if ",".join(sp_name[1:len(sp_name) - 2]) <= last_inclusion_path:
             print("{}Removing {}".format(pf, obj.object_name))
-            user.client.remove_object(user.bucket, name)
+            #user.minio_client.remove_object(user.bucket, obj.object_name)
 
 
 def delete_info(config, user, pf):
-    if user.is_found:
+    if user.is_found():
         relevant_path = user.get_relevant_path()
         print("{}Deleting all collection objects for {}".format(pf, relevant_path))
-        delete_objects(config, user, user.ent_type, relevant_path, pf + pf)
-        delete_objects(config, user, "tasks", relevant_path, pf + pf)
+        delete_objects(user, user.ent_type, relevant_path, pf + pf)
+        delete_objects(user, "tasks", relevant_path, pf + pf)
 

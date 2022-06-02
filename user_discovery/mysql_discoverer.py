@@ -218,51 +218,58 @@ def print_user_info(p_config, pf):
 
 def remove_if_notified_by_sqs(db, config, user, pf="\t"):
     if not user.get_sqs_notified():
+        print("{}No sqs notifications to delete".format(pf))
         return
     with db.cursor() as cur:
         stat = "DELETE FROM sqs_notifications WHERE recipient_email = '{}'".format(user.email)
         cur.execute(stat)
+        print("{}Removed {} sqs notifications for user: {}".format(pf, cur.rowcount, user.email))
         return cur.rowcount
 
 
 def remove_if_register_for_email_notification(db, config, user, pf="\t"):
     if not user.get_email_notified():
+        print("{}No email notifications to delete".format(pf))
         return
     org_id = config.get("org_id")
     with db.cursor() as cur:
-        stat = "DELETE FROM notification_emails WHERE organization_id {} email = '{}' ".format(org_id, user.email)
+        stat = "DELETE FROM notification_emails WHERE organization_id {} AND email = '{}' ".format(org_id, user.email)
         cur.execute(stat)
+        print("{}Removed {} email notifications for user: {}".format(pf, cur.rowcount, user.email))
         return cur.rowcount
 
 
 def remove_if_listed_controller_request(db, config, user, pf="\t"):
     if len(user.get_ctl_requests_list()) == 0:
+        print("{}No controller requests to update".format(pf))
         return
     with db.cursor() as cur:
         stat = "UPDATE controller_requests "
+        updated = 0
         for (jobj, id) in user.get_ctl_requests_list():
             jobj["id"] = user.get_obf_email()
             jobj["name"] = user.get_obf_name()
             jobj["subType"] = "LOCAL"
             lstat = stat + "SET identity_info = '{}' WHERE id = '{}'".format(json.dumps(jobj), id)
-            print(lstat)
             cur.execute(lstat)
+            updated += 1
+        print("{}Updated {} controller_requests for user: {}".format(pf, updated, user.email))
         return cur.rowcount
 
 
 def remove_if_report_shared_with(db, config, user, pf="\t"):
     if len(user.get_report_schd_list()) == 0:
+        print("{}No reports schedule to update".format(pf))
         return
     with db.cursor() as cur:
         update_stat = "UPDATE report_schedule SET "
-        delete_stat = "DELETE FROM report_schedule "
+        updated = 0
         for (jobj, id) in user.get_report_schd_list():
             jobj.remove(user.email)
-            if (len(jobj) > 0):
-                lstat = update_stat + "shared_with = '{}' WHERE id = '{}'".format(jobj.dump(), id)
-            else:
-                lstat = delete_stat + "WHERE id = '{}'".format(jobj.dump(), id)
+            lstat = update_stat + "shared_with = '{}' WHERE id = '{}'".format(jobj.dump(), id)
             cur.execute(lstat)
+            updated += 0
+        print("{}Updated {} report_schedule for user: {}".format(pf, updated, user.email))
 
 
 def obfuscate_user(db, user, pf):
