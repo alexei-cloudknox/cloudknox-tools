@@ -210,13 +210,13 @@ def delete_objects(user, collection_type, last_inclusion_path, pf):
         sp_name = obj.object_name.split('/')
         if ",".join(sp_name[1:len(sp_name) - 2]) <= last_inclusion_path:
             print("{}Removing {}".format(pf, obj.object_name))
-            #user.minio_client.remove_object(user.bucket, obj.object_name)
+            user.minio_client.remove_object(user.bucket, obj.object_name)
 
 
 def delete_info(config, user, pf):
     if user.is_found():
         relevant_path = user.get_relevant_path()
-        print("{}Deleting all collection objects for {}".format(pf, relevant_path))
+        print("{}Deleting all collection objects before {}".format(pf, relevant_path))
         delete_objects(user, user.ent_type, relevant_path, pf + pf)
         delete_objects(user, "tasks", relevant_path, pf + pf)
 

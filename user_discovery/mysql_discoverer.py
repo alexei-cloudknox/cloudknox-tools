@@ -171,7 +171,7 @@ def check_if_listed_controller_request(db, config, user, pf="\t"):
             else:
                 print("{}User is not listed in controller requests.".format(pf))
         else:
-            print("{}Organization is not listed".format(pf))
+            print("{}Organization is not listed in controller_requests table".format(pf))
 
 
 def check_if_report_shared_with(db, config, user, pf="\t"):
@@ -192,7 +192,7 @@ def check_if_report_shared_with(db, config, user, pf="\t"):
             else:
                 print("{}User is not listed for reports.".format(pf))
         else:
-            print("{}Organization is not listed.".format(pf))
+            print("{}Organization is not listed in report_schedule table.".format(pf))
 
 
 def print_user_info(p_config, pf):
@@ -285,8 +285,9 @@ def obfuscate_user(db, user, pf):
                                         "[]", "[]",
                                         user.get_obf_email(), user.get_obf_principal(),
                                         user.uid)
-        print(stat)
         cur.execute(stat)
+        if cur.rowcount > 0:
+            print("{}User is obfuscated in users table".format(pf))
         return cur.rowcount
 
 

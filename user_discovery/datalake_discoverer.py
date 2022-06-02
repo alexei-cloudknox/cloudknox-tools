@@ -49,7 +49,6 @@ def delete_identity_items_from_table(conn, config, table, pf):
     try:
         stat = "DELETE FROM {} WHERE identity_id = '{}'".format(table, user_email)
         cur.execute(stat)
-        w = cur.warnings
         if cur.rowcount > 0:
             print("{}{} number of records deleted from {}.".format(pf, cur.rowcount, table))
         elif cur.rowcount == 0:

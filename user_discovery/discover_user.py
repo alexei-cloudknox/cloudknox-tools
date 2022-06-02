@@ -21,11 +21,11 @@ def load_config(file_location):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Process some integers.')
     parser.add_argument('--config-file', type=str,  default="discover_user_config.json",
-                        help='config file')
+                        help='Config file')
     parser.add_argument('--search-area', type=str, default='blob-storage,data-db,control-db,analytics-db',
-                        help='search areas')
+                        help='Search areas. Any combinations of blob-storage,data-db,control-db,analytics-db. Default are all.')
     parser.add_argument('--delete', action='store_true',
-                        help='delete found info')
+                        help='Delete found info')
     args = parser.parse_args()
     config = load_config(args.config_file)
     search_area = set(args.search_area.split(','))

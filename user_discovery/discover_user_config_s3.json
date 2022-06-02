@@ -3,9 +3,9 @@
   "auth_system_id": "377596131774",
   "auth_system_type": "AWS",
 
-  "user_principal_name": "arn:aws:iam::377596131774:user/alexei",
-  "user_name": "alexei",
-  "user_email": "arn:aws:iam::377596131774:user/alexei",
+  "user_principal_name": "gramprakash@onboardtesttenant01.ccsctp.net",
+  "user_name": "Guru Ramprakash",
+  "user_email": "gramprakash@onboardtesttenant01.ccsctp.net",
 
   "obfuscation_data": {
     "name": "DELETED",
@@ -20,14 +20,14 @@
     "host": "localhost",
     "port": 5432,
     "user": "alexei",
-    "password": "lC7P8NB7WJgfiVytdekB"
+    "password": "iMSSrXPEqPTvS1quNju4"
   },
 
   "postgres_hi": {
     "host": "localhost",
     "port": 5433,
     "user": "alexei",
-    "password": "0s8a1MZFMLIxAzrsvbi6"
+    "password": "O8j6VLgGttLxauOw15Gj"
   },
 
   "data_lake": {
@@ -42,9 +42,9 @@
   "minio_client": {
     "endpoint": "s3.amazonaws.com",
     "secure": true,
-    "access_key": "ASIAU7LDHJNXIJX4JPXK",
-    "secret_key": "G5gf2uAk16jZIIb/bJUam84bvlr/otKN2BLA8fw5",
-    "session_token": "FwoGZXIvYXdzEHoaDPVjvm2ZdnAB1GMWAiKVAnHQ3WuNcuPo1JLMwu+J78BwqCCT7BKSbQU4LqF+KK5wgetv1KE6imNiFTx5VILWH9vyPpkkpLi9SyugOwLqNsxJXaw7fan/ujQzM1eDMIIXb/MgjLCcMEoEMjtRu/U6A9F3aTmxj0Q80uSRUmamWE2MkXB3GEW8nRWbb150+405UQImwFV6RSHjmvN/8cIMQTzSAA9qDgr63GJN4P9kwcuoUGlofK/+WE8IysDaXzwT9zKal25rTDdE02TCL4/pEuNg94FxJh/WrepLxKnYotQXoOlDv7hbHxvq3qiOgn9Gy6Rm/LTF0eU2ubkxXRffpjXBtLtfwLLjwDmHUXW12DQpT2DL53YbVh8KveUakTNY9N11wcgowcfjlAYyKwU74EKiIhrphmZEX0P0NloRd9+RPNJPXP06X2seuBTInJoYxox8QBXqJtk=",
+    "access_key": "ASIAU7LDHJNXPMIMKUNL",
+    "secret_key": "i/GzZFXBIuBJcxvP4jbacJ96sbb3+XEjuFZQjaot",
+    "session_token": "FwoGZXIvYXdzEH0aDFauRpqN1IO/UeIZySKVAsrPp4FPoe2DEhJ/FxrUYguRX73ght2JXphXYnYyyzM9zQ1/Tbns+qxdWxDw9Il4E1cu+vnM/bBqJDybT47NIozx6kkucrJZnsZrMUCMReKT2hY1EqE+CMAOhydQuD5O8W9PitjK6OQnL/oW5RRxQBIRPpO1PrstqxUtZmUNJeKhn+z6g2xOz27o/1WLFocro9lZUR0Y8d2lIwDf/+SbzWfMofOfo+xf6pVXHoxiE4Hq4vZoM2MdSZWecaNe5tYcmP6pLZ/xxxzR4JZWDP3peZ8reFOTKKnjiG1gWB84Ji1oDwKhroNZe3wtnWP1Nr4dPpcmvlj6nSaDDimML0KQqoRcNmgOXgnkN96kO8GWuRPTUVALwuooyZ/klAYyK4Q/lxMNBGoHhWqrQIW7eubVoaEiUXPkDwGBdbb6uRWkaqnFYRLxbZP0eZw=",
     "api": "S3v4",
     "path": "auto",
     "raw_bucket": "raw-data-342194867054-us-east-1"
