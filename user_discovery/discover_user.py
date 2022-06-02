@@ -5,12 +5,10 @@
 import argparse
 import json
 
-import mysql.connector as mysql
-
-import discover_user_datalake
-import discover_user_mysql
-import discover_user_pgs
-import discover_user_s3
+import datalake_discoverer
+import mysql_discoverer
+import pgs_discoverer
+import s3_discoverer
 
 
 def load_config(file_location):
@@ -22,16 +20,40 @@ def load_config(file_location):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Process some integers.')
-    parser.add_argument('config_file', type=str,
+    parser.add_argument('--config-file', type=str,  default="discover_user_config.json",
                         help='config file')
+    parser.add_argument('--search-area', type=str, default='blob-storage,data-db,control-db,analytics-db',
+                        help='search areas')
+    parser.add_argument('--delete', action='store_true',
+                        help='delete found info')
     args = parser.parse_args()
     config = load_config(args.config_file)
+    search_area = set(args.search_area.split(','))
+    pf = "\t"
+    if 'data-db' in search_area:
+        print("User Entitlements Data:")
+        discovered_records = pgs_discoverer.print_user_info(config, pf)
+        if discovered_records > 0 and args.delete is True:
+            print("DELETING from User Entitlements Data:")
+            pgs_discoverer.delete_info(config, pf)
 
-    print("Data Access Control DB:")
-    #discover_user_mysql.get_mysql_data(config, "\t")
-    print("User Entitlements Data:")
-    discover_user_pgs.collect_pgs_info(config, "\t")
-    print("User Raw Data and Backups:")
-    #discover_user_s3.list_data_from_raw_storage(config, "\t")
-    print("User DataLake Data:")
-    discover_user_datalake.get_datalake_data(config)
+    if 'control-db' in search_area:
+        print("Data Access Control DB:")
+        user = mysql_discoverer.print_user_info(config, pf)
+        if user is not None and args.delete is True:
+            print("DELETING from Data Access Control DB:")
+            mysql_discoverer.delete_info(config, user, pf)
+
+    if 'blob-storage' in search_area:
+        print("User Raw Data and Backups:")
+        user = s3_discoverer.print_user_info(config, pf)
+        if user is not None and args.delete is True:
+            print("DELETING from User Raw Data and Backups:")
+            s3_discoverer.delete_info(config, user, pf)
+
+    if 'analytics-db' in search_area:
+        print("User DataLake Data:")
+        discovered_records = datalake_discoverer.print_user_info(config, pf)
+        if discovered_records > 0 and args.delete is True:
+            print("DELETING from User DataLake Data:")
+            datalake_discoverer.delete_info(config, pf)

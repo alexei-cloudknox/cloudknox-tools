@@ -1,24 +1,33 @@
 {
-  "org_id": "iGsDEC49OIs7Yw1VXBEDfY037Zpr1b9c",
-  "auth_system_id": "956987887735",
+  "org_id": "cbdMov64KyH7OHH4dYp0aRtR1m6IT2GV",
+  "auth_system_id": "377596131774",
+  "auth_system_type": "AWS",
 
-  "user_principal_name": "geeta@mciemgeetaalapatippe03.ccsctp.net",
-  "user_name": "geeta",
-  "user_email": "",
-  "raw_bucket": "raw-data-342194867054-us-west-2",
+  "user_principal_name": "arn:aws:iam::377596131774:user/alexei",
+  "user_name": "alexei",
+  "user_email": "arn:aws:iam::377596131774:user/alexei",
+
+  "obfuscation_data": {
+    "name": "DELETED",
+    "lname": "DELETED",
+    "fname": "DELETED",
+    "email": "DELETED@user.gdpr",
+    "principal": "DELETED@user.gdpr",
+    "display_name": "DELETED_USER_GDPR"
+  },
 
   "postgres_li": {
     "host": "localhost",
     "port": 5432,
     "user": "alexei",
-    "password": "ZBM8VuQqQqIDhRzxXMYc"
+    "password": "lC7P8NB7WJgfiVytdekB"
   },
 
   "postgres_hi": {
     "host": "localhost",
     "port": 5433,
     "user": "alexei",
-    "password": "fSaeDpRm3BU2OMTazGGV"
+    "password": "0s8a1MZFMLIxAzrsvbi6"
   },
 
   "data_lake": {
@@ -26,24 +35,26 @@
     "password": "",
     "host": "localhost",
     "port": 8080,
-    "db": "db_datalake"
+    "catalog": "hive",
+    "schema": "db_datalake"
   },
 
   "minio_client": {
     "endpoint": "s3.amazonaws.com",
     "secure": true,
-    "access_key": "ASIAU7LDHJNXOZXMI3GE",
-    "secret_key": "eSVQG/lvc4SUHRZWwti9j3uD7aDODNEldUINIffe",
-    "session_token": "FwoGZXIvYXdzEAkaDN4XDXSHxBb2XwUPJSKVAvH3ulrBKz9iANovo4i93roXJNXF5leaA52w37iv0M9PKoEyKMvocdm12wvJ6B3Xg66b5lJzo0eu10/G7OnAtJOd1caZ5oolJaS6QSfu6/+jsU1PihyNwSxLpkuftbizj4/LVaBXIlRuv5cPbG7u4PCgAdtcPqbAPbWCb0VTzVW59F7kpA3nF4y86+3c9n/gbg5gZRWh24VfXeiezXQFiLzXF+122CfUlw/oiMkKzEuLk7QsVQGo1DD2lAjd6Ur5rsXjyUT74XTQSZhOzPgQuy8q89+7USTX8wgrcb+FUsl1g/WY3SVbUjYmaxLOAlFL4mGgzb6FVwFQjeld+5oo+gKCh8o/qWNS0KoaX1zzImwVXpIvl/kon/qhkwYyK5q3eYgxS04vSr7VE0whf6mrXyk3WJ58f2f4u8WVXmFfaLhjBssYU0MgJ6E=",
+    "access_key": "ASIAU7LDHJNXGSYHXA5I",
+    "secret_key": "qaygtIF39iLiUv7dCV/mp5goHuUU+PpAK4s6giX4",
+    "session_token": "FwoGZXIvYXdzEGsaDBqCRapkahQSay519iKVAkefDNyFjjQRUFjcayFpeUesGtqEoItEl67S7QXfTpC0pl8UdGZdmvP3PSUUxMOsYMhJ2TIMGE0PoUggD7zT9r4fbYQUFqFaGPK2GIfjxaWfDU0pUWQc0jx+1QlnvIAOVLSdgLHZeDpqdUvUs8CKmbw3LSFMZ3hUoxWe1GGGqMp9jmiEecQgNepXoGx1JDhAXTdh7j0Fd9yjwLOz38t5/1bo6ch9MxKNOPlps7N+oDHVJ5YIqROA4ZYPX3PvmuAz7EEnXBE0sz95/tZuUcjWWL0eV8bKGQ+tm+YPhskS5KkWwIIUePodkyQXiYEEm8ge1rGwGwgk0F6htVjPMFFl4rySq1Puvk3H/z3RzVPz8CZ/ioDfx1Iox5rglAYyK8h+zTTTsCMtTPowwd/GUfg6G2Ze89MmPY9jBTgBjKLMTQ8R6IPDbwOK6Gc=",
     "api": "S3v4",
-    "path": "auto"
+    "path": "auto",
+    "raw_bucket": "raw-data-342194867054-us-east-1"
   },
 
   "mysql_client": {
     "host": "localhost",
     "port": 3306,
     "user": "alexei",
-    "password": "B4UOmMCIrYG2Ccj2UlCf",
+    "password": "5o7HxdsarFU0VgVjoDCO",
     "db": "db_iam"
   }
 }

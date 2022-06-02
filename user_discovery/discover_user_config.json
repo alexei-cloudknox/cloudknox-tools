@@ -1,23 +1,33 @@
 {
-  "org_id": "iGsDEC49OIs7Yw1VXBEDfY037Zpr1b9c",
-  "auth_system_id": "956987887735",
-  "user_principal_name": "geeta@mciemgeetaalapatippe03.ccsctp.net",
-  "user_name": "geeta",
-  "user_email": "",
-  "raw_bucket": "knox-local-raw-data",
+  "org_id": "cukvKLU0Yqw939WofWWvy0zaMkBkojnJ",
+  "auth_system_id": "377596131774",
+  "auth_system_type": "AWS",
+
+  "user_principal_name": "arn:aws:iam::377596131774:user/alexei",
+  "user_name": "alexei",
+  "user_email": "arn:aws:iam::377596131774:user/alexei",
+
+  "obfuscation_data": {
+    "name": "DELETED",
+    "lname": "DELETED",
+    "fname": "DELETED",
+    "email": "DELETED@user.gdpr",
+    "principal": "DELETED@user.gdpr",
+    "display_name": "DELETED_USER_GDPR"
+  },
 
   "postgres_li": {
     "host": "localhost",
     "port": 5432,
-    "user": "alexei",
-    "password": "THLaCtBMfsfXLbQJomsm"
+    "user": "cloudknox",
+    "password": "changeme"
   },
 
   "postgres_hi": {
     "host": "localhost",
-    "port": 5433,
-    "user": "alexei",
-    "password": "ftN7WFDhUvWDg8ZNevCb"
+    "port": 5432,
+    "user": "cloudknox",
+    "password": "changeme"
   },
 
   "data_lake": {
@@ -25,7 +35,8 @@
     "password": "",
     "host": "localhost",
     "port": 8080,
-    "db": "db_datalake"
+    "catalog": "hive",
+    "schema": "db_datalake"
   },
 
   "minio_client": {
@@ -34,14 +45,15 @@
     "access_key": "cloudknox",
     "secret_key": "cloudknox",
     "api": "S3v4",
-    "path": "auto"
+    "path": "auto",
+    "raw_bucket": "knox-local-raw-data"
   },
 
   "mysql_client": {
     "host": "localhost",
     "port": 3306,
     "user": "alexei",
-    "password": "B4UOmMCIrYG2Ccj2UlCf",
+    "password": "v2kR7np1hmgcxuMcvUk7",
     "db": "db_iam"
   }
 }
