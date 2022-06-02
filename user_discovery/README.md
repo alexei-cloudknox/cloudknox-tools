@@ -17,9 +17,10 @@ Example of SSH tunneling through a jump host:
 | data-db | Postgres low intensity DB|    ssh -L 5432:postgres-lo.qa4.mciem.cloudknox.io:5432 jhmq4|
 | control-db | MySQL DB| ssh -L 3306:sql.qa4.mciem.cloudknox.io:3306 jhmq4|
 | analytics-db |Trino DB| ssh -L 8080:datalake-sql-coordinator.qa4.mciem.cloudknox.io:8080 jhmq4|
-  
-  Note, jhmq4 is a jump host for the cluster described in ~/.ssh/config file
-  
+
+
+Note, jhmq4 is a jump host for the cluster described in ~/.ssh/config file
+
 For S3 connection setup, the required parameters can be found in ~/.aws/credentials. Access should be set up through STS.
 
 
