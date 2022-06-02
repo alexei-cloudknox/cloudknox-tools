@@ -27,7 +27,7 @@ For S3 connection setup, the required parameters can be found in ~/.aws/credenti
 
 To run the script you must have python3 installed with the following libraries: json, trino, mysql, psycopg2, pyjq, minio
 
-## Running the scrip
+## Running the script
 
 The script can be run in two modes: user information discovery and deletion.
 
