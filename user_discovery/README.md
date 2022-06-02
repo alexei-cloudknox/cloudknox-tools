@@ -20,7 +20,7 @@ Example of SSH tunneling through a jump host:
   
   Note, jhmq4 is a jump host for the cluster described in ~/.ssh/config file
   
-For S3 connection set, the required parameters can be found in ~/.aws/credentials. Access should be setup through STS.
+For S3 connection setup, the required parameters can be found in ~/.aws/credentials. Access should be setup through STS.
 
 
 ## Python requirements
@@ -92,6 +92,47 @@ User Entitlements Data:
 Delete Mode: 
 The same line but with added --delete argument will clean up the data from the data-db
 ````bash
+alexei@samara:> python3 ./discover_user.py  --config-file ./discover_user_config_s3.json --search-area data-db --delete
+User Entitlements Data:
+	From Entitlements DB:
+		Identity records
+			461651 12404 arn:aws:iam::377596131774:user/alexei alexei 1 1 377596131774 None None 1 {'principalId': 'AIDAVP2T3XG7IEXLA5YZY', 'dateCreatedOn': 1651527040000} 1654205024695 2022-06-02 21:24:15.862989
+		Grants Summary:
+			num_tasks_granted: 10793,  num_high_risk_tasks_granted: 5743,  num_delete_tasks_granted: 1291,  num_resources_granted: 2477,  num_memberships: 1,  num_permissions: 62, 
+			Total number of granted permissions: 192
+	From Activities DB:
+		Total number of events performed by identity: 0
+		Total number of accesses with identity id: 0
+		Total number of logins by identity id: 1
+		Total number of tasks by identity id: 45
+		Total number of session tokens by identity id: 0
+	From Consumable Data DB:
+		Total number of autopilot recommendations with identity id: 0
+		Total number of services with advisor tasks with identity id: 2
+		Total number of risk scores categories with identity id: 0
+		Total number of task usages for identity id: 0
+		Total number of privilege escalations for identity id: 0
+DELETING from User Entitlements Data:
+	From Entitlements DB:
+		Identity records
+			461651 12404 arn:aws:iam::377596131774:user/alexei alexei 1 1 377596131774 None None 1 {'principalId': 'AIDAVP2T3XG7IEXLA5YZY', 'dateCreatedOn': 1651527040000} 1654205024695 2022-06-02 21:24:15.862989
+			Deleted number of records for user ref id 461651 : 1
+			Deleted number of records for user ref id 461651 : 192
+			Deleted number of records from identities table for user name id alexei : 1
+	From Activities DB:
+		Deleted number of events performed by identity: 0
+		Deleted number of accesses with identity id: 0
+		Deleted number of logins by identity id: 1
+		Deleted number of tasks by identity id: 45
+		Deleted number of session tokens by identity id: 0
+	From Consumable Data DB:
+		Deleted number of Access Key Usages for identity id: 0
+		Deleted number of autopilot recommendations with identity id: 0
+		Deleted number of services with advisor tasks with identity id: 2
+		Deleted number of Entitlements Usages for identity id: 0
+		Deleted number of risk scores categories with identity id: 0
+		Deleted number of task usages for identity id: 0
+		Deleted number of privilege escalations for identity id: 0
 ````
 
 ### A Run for contol-db
@@ -158,4 +199,20 @@ DELETING from User Raw Data and Backups:
                 Removing tasks/cbdMov64KyH7OHH4dYp0aRtR1m6IT2GV/377596131774/2022/4/12/20/1649796194835.json.gz
                 Removing tasks/cbdMov64KyH7OHH4dYp0aRtR1m6IT2GV/377596131774/2022/4/12/20/1649796194858.json.gz
                 ...
+````
+
+### A Run for analytics-db and back up
+````bash
+alexei@samara:> python3 ./discover_user.py  --config-file ./discover_user_config_s3.json --search-area analytics-db
+User DataLake Data:
+	Collecting from tasks
+		Table tasks Contains 101 entries for user.
+	Collecting from activity_alerts
+		Table does not contain any entries for user.
+	Collecting from hourly_anomaly_alerts
+		Table does not contain any entries for user.
+	Collecting from statistical_alerts
+		Table does not contain any entries for user.
+	Collecting from par_alerts
+		Table does not contain any entries for user.
 ````
