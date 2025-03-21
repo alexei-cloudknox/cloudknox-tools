@@ -22,6 +22,8 @@ class UserProperties:
     email_notified = False
 
     def __init__(self, name, email, principal, obf_data):
+
+
         self.name = name
         self.email = email
         self.principal = principal
