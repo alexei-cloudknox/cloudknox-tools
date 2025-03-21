@@ -9,6 +9,8 @@ import mysql.connector as mysql
 
 
 class UserProperties:
+
+
     is_org_owner = False
     uid = None
     obf_data = {"name": "DELETED", "lname": "DELETED", "fname": "DELETED",
